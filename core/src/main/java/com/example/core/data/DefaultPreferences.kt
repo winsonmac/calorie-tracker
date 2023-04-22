@@ -1,4 +1,4 @@
-package com.example.core.domain
+package com.example.core.data
 
 import android.content.SharedPreferences
 import com.example.core.domain.model.ActivityLevel
@@ -63,6 +63,16 @@ class DefaultPreferences(
         sharedPref.edit()
             .putFloat(Preferences.KEY_FAT_RATIO, ratio)
             .apply()
+    }
+
+    override fun saveShouldShowOnBoarding(shouldShow: Boolean) {
+        sharedPref.edit()
+            .putBoolean(Preferences.KEY_SHOULD_SHOW_ON_BOARDING, shouldShow)
+            .apply()
+    }
+
+    override fun loadShouldShowOnBoarding(): Boolean {
+        return sharedPref.getBoolean(Preferences.KEY_SHOULD_SHOW_ON_BOARDING, true)
     }
 
     override fun loadUserInfo(): UserInfo {

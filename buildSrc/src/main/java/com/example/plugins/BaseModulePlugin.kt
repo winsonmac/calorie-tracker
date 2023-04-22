@@ -71,37 +71,13 @@ abstract class BaseModulePlugin(
                 }
             }
             compileOptions {
+                isCoreLibraryDesugaringEnabled = true
                 sourceCompatibility = JavaVersion.VERSION_17
                 targetCompatibility = JavaVersion.VERSION_17
             }
         }
     }
 
-    private fun Project.dependenciesConfig() {
-        dependencies {
-            "kapt"(DaggerHilt.hiltCompiler)
-            "implementation"(DaggerHilt.hiltAndroid)
-
-            "testImplementation"(Testing.junit4)
-            "testImplementation"(Testing.junitAndroidExt)
-            "testImplementation"(Testing.truth)
-            "testImplementation"(Testing.coroutines)
-            "testImplementation"(Testing.turbine)
-            "testImplementation"(Testing.composeUiTest)
-            "testImplementation"(Testing.mockk)
-            "testImplementation"(Testing.mockWebServer)
-
-            "androidTestImplementation"(Testing.junit4)
-            "androidTestImplementation"(Testing.junitAndroidExt)
-            "androidTestImplementation"(Testing.truth)
-            "androidTestImplementation"(Testing.coroutines)
-            "androidTestImplementation"(Testing.turbine)
-            "androidTestImplementation"(Testing.composeUiTest)
-            "androidTestImplementation"(Testing.mockk)
-            "androidTestImplementation"(Testing.mockWebServer)
-            "androidTestImplementation"(Testing.hiltTesting)
-        }
-    }
 
     private fun Project.androidComposeConfig() {
         android.run {
@@ -133,6 +109,34 @@ abstract class BaseModulePlugin(
                 sourceCompatibility = JavaVersion.VERSION_17
                 targetCompatibility = JavaVersion.VERSION_17
             }
+        }
+    }
+
+    private fun Project.dependenciesConfig() {
+        dependencies {
+            "kapt"(DaggerHilt.hiltCompiler)
+            "implementation"(DaggerHilt.hiltAndroid)
+
+            "testImplementation"(Testing.junit4)
+            "testImplementation"(Testing.junitAndroidExt)
+            "testImplementation"(Testing.truth)
+            "testImplementation"(Testing.coroutines)
+            "testImplementation"(Testing.turbine)
+            "testImplementation"(Testing.composeUiTest)
+            "testImplementation"(Testing.mockk)
+            "testImplementation"(Testing.mockWebServer)
+
+            "androidTestImplementation"(Testing.junit4)
+            "androidTestImplementation"(Testing.junitAndroidExt)
+            "androidTestImplementation"(Testing.truth)
+            "androidTestImplementation"(Testing.coroutines)
+            "androidTestImplementation"(Testing.turbine)
+            "androidTestImplementation"(Testing.composeUiTest)
+            "androidTestImplementation"(Testing.mockk)
+            "androidTestImplementation"(Testing.mockWebServer)
+            "androidTestImplementation"(Testing.hiltTesting)
+
+            "coreLibraryDesugaring"("com.android.tools:desugar_jdk_libs:1.2.2")
         }
     }
 
@@ -169,6 +173,8 @@ abstract class BaseModulePlugin(
             "androidTestImplementation"(Testing.mockk)
             "androidTestImplementation"(Testing.mockWebServer)
             "androidTestImplementation"(Testing.hiltTesting)
+
+            "coreLibraryDesugaring"("com.android.tools:desugar_jdk_libs:1.2.2")
         }
     }
 }

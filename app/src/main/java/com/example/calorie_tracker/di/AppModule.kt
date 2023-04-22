@@ -3,7 +3,7 @@ package com.example.calorie_tracker.di
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
-import com.example.core.domain.DefaultPreferences
+import com.example.core.data.DefaultPreferences
 import com.example.core.domain.preferences.Preferences
 import com.example.core.domain.use_case.FilterOutDigits
 import dagger.Module
