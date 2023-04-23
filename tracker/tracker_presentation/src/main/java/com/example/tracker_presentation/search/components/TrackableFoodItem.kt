@@ -44,7 +44,7 @@ import com.example.core_ui.LocalSpacing
 import com.example.tracker_presentation.components.NutrientInfo
 import com.example.tracker_presentation.search.TrackableFoodUiState
 
-@OptIn(ExperimentalCoilApi::class)
+@ExperimentalCoilApi
 @Composable
 fun TrackableFoodItem(
     trackableFoodUiState: TrackableFoodUiState,
@@ -88,7 +88,7 @@ fun TrackableFoodItem(
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
                         .size(100.dp)
-                        .clip(RoundedCornerShape(5.dp))
+                        .clip(RoundedCornerShape(topStart = 5.dp))
                 )
                 Spacer(modifier = Modifier.width(spacing.spaceMedium))
                 Column(
@@ -102,7 +102,10 @@ fun TrackableFoodItem(
                     )
                     Spacer(modifier = Modifier.height(spacing.spaceSmall))
                     Text(
-                        text = stringResource(id = R.string.kcal_per_100g),
+                        text = stringResource(
+                            id = R.string.kcal_per_100g,
+                            food.caloriesPer100g
+                        ),
                         style = MaterialTheme.typography.body2
                     )
                 }
