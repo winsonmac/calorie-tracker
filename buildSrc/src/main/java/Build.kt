@@ -6,4 +6,7 @@ object Build {
 
     private const val hiltAndroidGradlePluginVersion = "2.45"
     const val hiltAndroidGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:$hiltAndroidGradlePluginVersion"
+
+    private const val jacocoPluginVersion = "0.8.8"
+    const val jacocoPlugin = "org.jacoco:org.jacoco.core:$jacocoPluginVersion"
 }
